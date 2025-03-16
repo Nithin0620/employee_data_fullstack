@@ -10,3 +10,5 @@ const getDB = require("../controllers/getDB");
 router.get("/",getDB);
 router.post("/createdb",createDB);
 router.delete("/deletedb",deleteDB);
+
+module.exports = router;
