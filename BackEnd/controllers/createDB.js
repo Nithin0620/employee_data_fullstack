@@ -1,10 +1,13 @@
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const Employee = require("../models/employees");
 
-exports.createDB = async (req,res)=>{
+const createDB = async (req,res)=>{
    try{
 
       const {name,email,phone,experience,department,role}= req.body;
+      if (!name || !email || !phone || !experience || !department || !role) {
+         return res.status(400).json({ message: "All fields are required" });
+      }
       const newEmployee = new Employee( {
          name,
          email,
@@ -23,11 +26,12 @@ exports.createDB = async (req,res)=>{
 
    }
    catch(e){
-      console.log(e);
-      alert("Error occured during database creation");
+      console.log(e.message);
       res.status(500).json({
          success:false,
          message:"Error occured during database creation",
       })
    }
 }
+
+module.exports = createDB;
