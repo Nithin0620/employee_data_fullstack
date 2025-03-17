@@ -4,17 +4,17 @@ const Employee = require("../models/employees");
 const createDB = async (req,res)=>{
    try{
 
-      const {name,email,phone,experience,department,role}= req.body;
-      if (!name || !email || !phone || !experience || !department || !role) {
+      const {name,email,title,department,role,image}= req.body;
+      if (!name || !email || !title || !department || !role) {
          return res.status(400).json({ message: "All fields are required" });
       }
       const newEmployee = new Employee( {
          name,
          email,
-         phone,
-         experience,
+         title,
          department,
          role,
+         image: image || "default.jpg",
       })
       const savedEmployee = await newEmployee.save(); 
 
@@ -33,5 +33,7 @@ const createDB = async (req,res)=>{
       })
    }
 }
+
+// db.employees.dropIndex("phone_1")
 
 module.exports = createDB;

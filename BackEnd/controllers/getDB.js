@@ -3,7 +3,7 @@ const employee = require("../models/employees");
 const getDB = async (req,res)=>{
    try{
       const data = await employee.find();
-      res.status(500).json({
+      res.status(200).json({
          success:true,
          data:data,
          message:"Data fetched Successfully",

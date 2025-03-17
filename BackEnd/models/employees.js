@@ -11,14 +11,10 @@ const employeeSchema = new mongoose.Schema(
          required:true,
          unique:true,
       },
-      Phone:{
-         type:Number,
+      title:{
+         type:String,
          required:true,
-         unique:true,
-      },
-      experience:{
-         type:Number,
-         required:true
+         // unique:true,
       },
       department:{
          type:String,
@@ -28,8 +24,14 @@ const employeeSchema = new mongoose.Schema(
       role:{
          type:String,
          required:true,
+      },
+      image:{
+         type:String,
+         required:false,
       }
+
    }
+
 )
 
 module.exports = mongoose.model("Employee",employeeSchema);

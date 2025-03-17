@@ -1,6 +1,19 @@
 const express = require("express");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const app = express();
+
+const cors = require("cors");
+
+// Allow requests from all origins
+app.use(cors());
+
+// OR Allow only specific origins
+app.use(cors({
+  origin: "http://localhost:3000",
+  methods: "GET,POST,PUT,DELETE",
+  allowedHeaders: "Content-Type,Authorization"
+}));
+
 
 require("dotenv").config();
 

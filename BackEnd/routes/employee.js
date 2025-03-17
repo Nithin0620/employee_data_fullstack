@@ -7,7 +7,7 @@ const deleteDB = require("../controllers/deleteDB");
 const getDB = require("../controllers/getDB");
 
 
-router.get("/",getDB);
+router.get("/getallUsers",getDB);
 router.post("/createdb",createDB);
 router.delete("/deletedb",deleteDB);
 
